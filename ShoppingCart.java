@@ -6,7 +6,7 @@ public class ShoppingCart {
             System.out.println("\nShopping Cart");
             System.out.println("1. Add to cart (Create).");
             System.out.println("2. View cart (Read).");
-            System.out.println("3. Update an item (Update).");
+            System.out.println("3. Replace an item (Update).");
             System.out.println("4. Delete an item (Delete).");
             System.out.println("5. Search an item (Search).");
             System.out.println("6. Exit");
