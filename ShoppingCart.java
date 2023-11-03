@@ -23,7 +23,7 @@ public class ShoppingCart {
                     double price = myCart.scanner.nextDouble();
                     System.out.print("Enter item quantity: ");
                     int quantity = myCart.scanner.nextInt();
-                    myCart.addItem(new Item(name, price, quantity));
+                    myCart.addToCart(new Item(name, price, quantity));
                     System.out.println(name + " has been successfully added in your cart.");
                 }
                 case 2 -> myCart.viewCart();
@@ -37,7 +37,7 @@ public class ShoppingCart {
                         double newPrice = myCart.scanner.nextDouble();
                         System.out.print("Enter new item quantity: ");
                         int newQuantity = myCart.scanner.nextInt();
-                        myCart.updateItem(oldName, new Item(newName, newPrice, newQuantity));
+                        myCart.replaceItem(oldName, new Item(newName, newPrice, newQuantity));
                     }
                 }
                 case 4 -> myCart.removeItem();
