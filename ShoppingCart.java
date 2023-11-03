@@ -38,13 +38,13 @@ public class ShoppingCart {
                         System.out.print("Enter new item quantity: ");
                         int newQuantity = myCart.scanner.nextInt();
                         myCart.replaceItem(oldName, new Item(newName, newPrice, newQuantity));
+                    } else {
+                        System.out.println("\nThere's nothing to replace since your cart is empty.");
                     }
                 }
                 case 4 -> myCart.removeItem();
                 case 5 -> {
-                    System.out.print("\nEnter a keyword to search in your cart: ");
-                    String keyword = myCart.scanner.nextLine();
-                    myCart.searchCart(keyword);
+                    myCart.searchCart();
                 }
                 case 6 -> System.exit(0);
             }
