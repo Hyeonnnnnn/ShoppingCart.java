@@ -10,7 +10,7 @@ public class Cart {
         this.scanner = new Scanner(System.in);
     }
 
-    public void addItem(Item item) {
+    public void addToCart(Item item) {
         cart.push(item);
     }
 
@@ -28,7 +28,7 @@ public class Cart {
         }
     }
 
-    public void updateItem(String oldName, Item newItem) {
+    public void replaceItem(String oldName, Item newItem) {
         Stack<Item> tempStore = new Stack<>();
         boolean found = false;
         while (!cart.isEmpty()) {
