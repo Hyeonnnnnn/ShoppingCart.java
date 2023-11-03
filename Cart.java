@@ -29,6 +29,10 @@ public class Cart {
     }
 
     public void replaceItem(String oldName, Item newItem) {
+        if (cart.isEmpty()) {
+            System.out.println("\nThere's nothing to replace since your cart is empty.");
+            return;
+        }
         Stack<Item> tempStore = new Stack<>();
         boolean found = false;
         while (!cart.isEmpty()) {
@@ -50,18 +54,25 @@ public class Cart {
             cart.pop();
             System.out.println("\nThe item that you last added has been removed.");
         } else {
-            System.out.println("\nYour cart is already empty but you want to remove an item, just throw this goddamn cart away.");
+            System.out.println("\nYour cart is already empty and you want to remove an item, just throw this goddamn cart away.");
         }
     }
 
-    public void searchCart(String keyword) {
+    public void searchCart() {
         if (cart.isEmpty()) {
             System.out.println("\nThere's nothing to search in your cart since it's empty.");
         } else {
+            System.out.print("\nEnter a keyword to search in your cart: ");
+            String keyword = scanner.nextLine();
+            boolean found = false;
             for (Item item : cart) {
                 if (item.getName().toLowerCase().contains(keyword.toLowerCase())) {
                     System.out.println(item);
+                    found = true;
                 }
+            }
+            if (!found) {
+                System.out.println("\nThere are no items in your cart that match the keyword '" + keyword + "'.");
             }
         }
     }
