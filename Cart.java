@@ -10,8 +10,15 @@ public class Cart {
         this.scanner = new Scanner(System.in);
     }
 
-    public void addToCart(Item item) {
-        cart.push(item);
+    public void addToCart() {
+        System.out.print("\nEnter item name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter item price: P");
+        double price = scanner.nextDouble();
+        System.out.print("Enter item quantity: ");
+        int quantity = scanner.nextInt();
+        cart.push(new Item(name, price, quantity));
+        System.out.println(name + " has been successfully added in your cart.");
     }
 
     public void viewCart() {
@@ -28,18 +35,25 @@ public class Cart {
         }
     }
 
-    public void replaceItem(String oldName, Item newItem) {
+    public void replaceItem() {
         if (cart.isEmpty()) {
             System.out.println("\nThere's nothing to replace since your cart is empty.");
             return;
         }
+        System.out.print("\nEnter the name of the item you want to update: ");
+        String oldName = scanner.nextLine();
+        System.out.print("Enter new item name: ");
+        String newName = scanner.nextLine();
+        System.out.print("Enter new item price: P");
+        double newPrice = scanner.nextDouble();
+        System.out.print("Enter new item quantity: ");
+        int newQuantity = scanner.nextInt();
+
         Stack<Item> tempStore = new Stack<>();
-        boolean found = false;
         while (!cart.isEmpty()) {
             Item item = cart.pop();
             if (item.getName().equals(oldName)) {
-                tempStore.push(newItem);
-                found = true;
+                tempStore.push(new Item(newName, newPrice, newQuantity));
             } else {
                 tempStore.push(item);
             }
@@ -47,7 +61,6 @@ public class Cart {
         while (!tempStore.isEmpty()) {
             cart.push(tempStore.pop());
         }
-        System.out.println(found ? "\n" + oldName + " has been updated to " + newItem.getName() + " in the cart." : "\n" + oldName + " is not in the cart.");
     }
     public void removeItem() {
         if (!cart.isEmpty()) {
@@ -75,5 +88,10 @@ public class Cart {
                 System.out.println("\nThere are no items in your cart that match the keyword '" + keyword + "'.");
             }
         }
+    }
+
+    public void clearCart() {
+        cart.clear();
+        System.out.println("\nYour cart has been cleared.");
     }
 }
