@@ -1,7 +1,7 @@
 public class Item {
-    private String name;
-    private double price;
-    private int quantity;
+    public String name;
+    public double price;
+    public int quantity;
 
     public Item(String name, double price, int quantity) {
         this.name = name;
@@ -11,14 +11,6 @@ public class Item {
 
     public String getName() {
         return name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public double getTotalPrice() {
