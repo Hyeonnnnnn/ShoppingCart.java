@@ -91,7 +91,11 @@ public class Cart {
     }
 
     public void clearCart() {
-        cart.clear();
-        System.out.println("\nYour cart has been cleared.");
+        if (cart.isEmpty()){
+            System.out.println("Your cart is already empty.");
+        } else {
+            cart.clear();
+            System.out.println("Your cart has been cleared.");
+        }
     }
 }
