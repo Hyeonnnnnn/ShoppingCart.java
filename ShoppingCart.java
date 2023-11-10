@@ -24,6 +24,7 @@ public class ShoppingCart {
                 case 5 -> myCart.searchCart();
                 case 6 -> myCart.clearCart();
                 case 7 -> System.exit(0);
+                default -> System.out.println("\nYou entered an invalid option.");
             }
         }
     }
